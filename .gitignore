@@ -5,3 +5,33 @@
 !config/.env.example
 *.jks
 *.keystore
+
+# Flutter generated
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+.build/
+
+# Android local/generated
+android/.gradle/
+android/local.properties
+
+# Generated plugin registrant
+**/GeneratedPluginRegistrant.java
+
+# Secrets
+.env
+.env.*
+!config/.env.example
+
+# Signing files
+*.jks
+*.keystore
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
