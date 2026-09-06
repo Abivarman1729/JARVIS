@@ -1,0 +1,7 @@
+.dart_tool/
+.build/
+.env
+.env.*
+!config/.env.example
+*.jks
+*.keystore
