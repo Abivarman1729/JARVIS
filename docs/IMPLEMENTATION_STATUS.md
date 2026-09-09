@@ -50,8 +50,10 @@ These items are intentionally not checked off because the required real handlers
 At the time of this status update:
 
 - `flutter analyze`: passed
-- `flutter test`: passed, 8 tests
+- `flutter test`: passed, 12 tests
 - `flutter build apk --debug`: passed
+- `flutter build apk --release`: passed with debug signing configuration; production signing is not configured
+- GitHub Actions workflow: added at `.github/workflows/flutter.yml`
 - Working tree: clean before this status document
 - Current branch: `abivarman1729-add-logo-assets`
 - The new transformation commits are pushed to `origin/abivarman1729-add-logo-assets`; they are not yet merged into `main`.
