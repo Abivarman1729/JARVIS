@@ -22,11 +22,15 @@ This checklist reflects the repository and verified commits, not just planned ar
 - [ ] **Building security and verified tool execution**
   - `SecurityManager` now requires an injected `AuthenticationService`, supports session expiry, and supports logout.
   - `ToolAuthorizer` and `ToolExecutor` enforce authentication, confirmation, blocked-tool policy, executable handlers, and result verification.
-  - Remaining: wire the executor into the authoritative controller path; implement Android biometric/device authentication; add capability permissions and durable audit events.
+  - The controller now accepts the executor and routes inferred actions through it when configured.
+  - Remaining: add capability permissions and durable audit events; the legacy prototype entry path still needs migration.
 
 ## Not yet implemented
 
-- [ ] Implementing scoped Android bridge
+- [ ] **Implementing scoped Android bridge** (partial)
+  - Added a scoped `MethodChannel` for device info, battery info, validated HTTP(S) URL launching, and biometric/device-credential authentication.
+  - Added Kotlin handlers with input validation and explicit unavailable/error results.
+  - Remaining: instrumented Android verification and additional permission-aware capabilities.
 - [ ] Adding persistence and privacy controls
 - [ ] Implementing AI gateway and research search
 - [ ] Integrating voice and truthful UI state

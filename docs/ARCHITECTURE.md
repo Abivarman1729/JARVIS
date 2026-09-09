@@ -24,6 +24,8 @@ The Android host now uses the current Flutter embedding and has tracked Gradle c
 
 The existing large prototype in `lib/main.dart` remains temporarily preserved while the authoritative execution path is migrated. It must not be treated as evidence that platform actions, voice, AI providers, persistence, or automation are implemented.
 
+The scoped Android bridge in `lib/platform/jarvis_native_bridge.dart` and `android/app/src/main/kotlin/com/jarvis/jarvis/JarvisNativeBridge.kt` currently exposes only device information, battery information, validated HTTP(S) URL launching, and biometric/device-credential authentication. Other Android capabilities remain unsupported until implemented and tested.
+
 ## Rules
 
 - Security policy executes before privileged tools.
