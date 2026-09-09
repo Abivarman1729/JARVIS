@@ -31,6 +31,9 @@ This checklist reflects the repository and verified commits, not just planned ar
   - Added a scoped `MethodChannel` for device info, battery info, validated HTTP(S) URL launching, and biometric/device-credential authentication.
   - Added Kotlin handlers with input validation and explicit unavailable/error results.
   - Remaining: instrumented Android verification and additional permission-aware capabilities.
+- [ ] **Adding persistence and privacy controls** (partial)
+  - Added a `SharedPreferencesMemoryRepository` with JSON persistence, CRUD, clear, and explicit rejection of sensitive memory without encrypted storage.
+  - Remaining: encrypted storage, conversation/settings/task repositories, migrations, export, retention, and user-facing privacy controls.
 - [ ] Adding persistence and privacy controls
 - [ ] Implementing AI gateway and research search
 - [ ] Integrating voice and truthful UI state
