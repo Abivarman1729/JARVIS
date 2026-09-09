@@ -6,7 +6,7 @@
 
 JARVIS is a small Flutter scaffold with two overlapping application surfaces: a large single-file prototype in `lib/main.dart` and a smaller set of service/model interfaces under `lib/`. The project has useful security intent and passes Dart analysis and its current test, but it is not yet an executable agent platform. Most capabilities are abstractions, simulations, or UI-level behavior without platform handlers, provider adapters, persistence, verification, or durable task state.
 
-The Android project is incomplete for a current Flutter build. Only a manifest, a legacy-style `Activity`, generated registration, an accessibility XML file, and local machine configuration are tracked; no Gradle wrapper or Android build configuration is present in the repository. A debug APK build therefore fails before application compilation.
+The Android project was initially incomplete for a current Flutter build. Milestone 1 regenerated the host with the current embedding and tracked Gradle configuration, and the debug APK now builds. Native capability implementations are still absent.
 
 ## Existing architecture
 
@@ -18,10 +18,10 @@ The current repository contains:
 - `lib/services/`: interfaces or thin adapters for AI, memory, permissions, security, voice, web search, and device linking.
 - `lib/tools/`: a static tool registry with risk labels and text-based action inference.
 - `lib/presentation/`: a minimal `MaterialApp` shell that is separate from the monolithic prototype.
-- `android/`: partial Android metadata and scaffolding, not a complete buildable Flutter Android host.
+- `android/`: current Flutter Android host configuration after Milestone 1, with no real native capability bridge yet.
 - `backend/` and `windows/`: documentation-only scaffolding.
 
-There is no dependency-injection composition root, durable repository implementation, central task state model, structured plan model, or real tool executor connecting the small service layer to platform operations.
+There is no dependency-injection composition root, durable repository implementation, or real tool executor connecting the small service layer to platform operations. Typed execution primitives now exist in `lib/models/assistant_execution.dart`.
 
 ## Current execution flow
 
@@ -95,11 +95,13 @@ No credentials were found in tracked source. `config/.env.example` contains empt
 
 ## Android and build-system gaps
 
-- `MainActivity.kt` extends `android.app.Activity` and does not use the current Flutter embedding.
-- No tracked Gradle wrapper, root Gradle build, settings, app Gradle build, or Gradle properties were found.
+- The original `MainActivity.kt` extended `android.app.Activity`; Milestone 1 replaced it with a current `FlutterActivity` host.
+- Tracked Gradle wrapper, root Gradle build, settings, app Gradle build, and Gradle properties were added during Milestone 1.
 - No Flutter `MethodChannel` or `EventChannel` bridge is implemented.
 - The accessibility XML is not connected to a Kotlin `AccessibilityService`.
 - `android/local.properties` is machine-specific and should not be treated as portable project configuration.
+
+`flutter build apk --debug` now passes. Release signing and production release configuration remain unverified.
 
 ## Testing gaps
 

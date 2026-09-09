@@ -53,3 +53,13 @@ The tracked Android inventory contains the manifest, Kotlin activity, generated 
 ## Baseline conclusion
 
 The Dart layer is analyzable and the narrow unit test passes, but the Android artifact is not buildable and the format gate is not clean. These are baseline conditions, not regressions from the Phase 0-1 documentation changes.
+
+## Milestone 1 update
+
+The Android host was regenerated with the current Flutter embedding and tracked Gradle configuration. After restoring the application sources and fixing the accessibility description resource reference:
+
+| Command | Result |
+|---|---|
+| `flutter analyze` | PASS; no issues found |
+| `flutter test` | PASS; 3 tests passed |
+| `flutter build apk --debug` | PASS; `build/app/outputs/flutter-apk/app-debug.apk` |
