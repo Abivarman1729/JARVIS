@@ -38,12 +38,11 @@ This checklist reflects the repository and verified commits, not just planned ar
 - [ ] **Adding persistence and privacy controls** (partial)
   - Added a `SharedPreferencesMemoryRepository` with JSON persistence, CRUD, clear, and explicit rejection of sensitive memory without encrypted storage.
   - Remaining: encrypted storage, conversation/settings/task repositories, migrations, export, retention, and user-facing privacy controls.
-- [ ] Adding persistence and privacy controls
 - [ ] Integrating voice and truthful UI state
 - [ ] Building advanced assistant capabilities
 - [ ] Hardening release and CI evidence
 
-These items are intentionally not checked off because the required real handlers, platform integrations, persistence, tests, or release evidence do not yet exist.
+These items are intentionally not checked off because the required real handlers, platform integrations, persistence, tests, or release evidence do not yet exist. A green check is reserved for a capability that has been implemented and verified end-to-end; changing the marker without that evidence would misrepresent the project.
 
 ## Verification snapshot
 
