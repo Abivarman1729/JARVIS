@@ -21,7 +21,7 @@ The current repository contains:
 - `android/`: current Flutter Android host configuration after Milestone 1, with no real native capability bridge yet.
 - `backend/` and `windows/`: documentation-only scaffolding.
 
-There is no dependency-injection composition root, durable repository implementation, or real tool executor connecting the small service layer to platform operations. Typed execution primitives now exist in `lib/models/assistant_execution.dart`.
+There is no dependency-injection composition root or durable repository implementation. Typed execution primitives now exist in `lib/models/assistant_execution.dart`, and `ToolExecutor` now provides a policy/handler/verifier boundary, but no Android or network handlers are wired yet.
 
 ## Current execution flow
 
@@ -49,7 +49,7 @@ The large prototype has a separate flow driven from its own `main()` and widget 
 ### Partially implemented
 
 - AI orchestration: provider interface exists, but there is no production provider, streaming contract, structured output, tool-call validation, cancellation, timeout, retry, or fallback.
-- Session security: a time window exists, but authorization currently succeeds without biometric, device credential, speaker, or platform identity verification.
+- Session security: an injectable authentication boundary, expiry, and logout now exist; biometric, device credential, speaker, and platform implementations are still pending.
 - Memory: an injected repository is expected, but no persistent or encrypted repository is included; sensitive saves are rejected rather than classified or securely stored.
 - Permissions: a gateway contract exists, but no Android implementation is wired.
 - Device linking: paired-device filtering and revocation contracts exist, but there is no authenticated encrypted transport or capability negotiation.
@@ -62,7 +62,7 @@ The large prototype has a separate flow driven from its own `main()` and widget 
 - The monolithic prototype contains mock service/provider classes and in-memory "persistent-style" state.
 - Prototype streaming and assistant responses are not connected to a real model provider.
 - UI status and command behavior are not evidence that an OS action started or completed.
-- The small security manager records a session as authenticated without authenticating it.
+- The current controller path still uses substring intent inference and is not yet wired to the verified executor.
 - Tool inference identifies intent by substring matching and creates empty arguments; it does not produce validated structured tool calls.
 
 ### Not implemented
